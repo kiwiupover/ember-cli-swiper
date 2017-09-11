@@ -21,8 +21,8 @@ module.exports = {
       }
       return `if (typeof FastBoot === 'undefined') { ${content} }`
     });
-  
-    return new mergeTrees([defaultTree, browserVendorLib]);
+
+    return defaultTree ? new mergeTrees([defaultTree, browserVendorLib]) : browserVendorLib;
   },
 
   included: function(app) {
